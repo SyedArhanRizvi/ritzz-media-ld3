@@ -1,0 +1,384 @@
+* {
+    margin: 0;
+    padding-left: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+}
+
+.main {
+    display: flex;
+}
+
+.nav {
+    height: 100vh;
+    width: 3vw;
+    background: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    cursor: pointer;
+    border: 1px solid #555252a2;
+}
+
+.fullNav {
+    height: 100vh;
+    width: 98vw;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    /* background: #00000036; */
+    display: flex;
+    justify-content: right;
+}
+
+.fullNav .nav-main {
+    width: 80%;
+    height: 100%;
+    background: #fff;
+    position: relative;
+    cursor: pointer;
+}
+
+.fullNav .nav-main .bg-nav1 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 10;
+    display: flex;
+    align-items: end;
+    padding: 40px;
+    justify-content: space-between;
+}
+
+.fullNav .nav-main .bg-nav1 div h1 {
+    font-size: 2.5vw;
+    font-weight: 200;
+}
+
+.fullNav .nav-main .bg-nav1 div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+
+.fullNav .nav-main .bg-nav1 div p {
+    font-style: italic;
+    font-weight: 100;
+    text-decoration: underline;
+}
+
+.fullNav .nav-main .bg-nav2 {
+    position: absolute;
+    height: 80%;
+    width: 80%;
+    top: 0;
+    right: 0;
+    background: #fff;
+    z-index: 20;
+    border: 1px solid #555252a2;
+    display: flex;
+    align-items: end;
+    padding: 40px;
+}
+
+.fullNav .nav-main .bg-nav2 h1 {
+    font-size: 2.5vw;
+    font-weight: 200;
+}
+
+.fullNav .nav-main .bg-nav3 {
+    position: absolute;
+    height: 60%;
+    width: 60%;
+    top: 0;
+    right: 0;
+    background: #fff;
+    z-index: 30;
+    border: 1px solid #555252a2;
+    display: flex;
+    padding: 40px;
+    align-items: end;
+}
+
+.fullNav .nav-main .bg-nav3 h1 {
+    font-size: 2.5vw;
+    font-weight: 200;
+}
+
+.fullNav .nav-main .bg-nav4 {
+    position: absolute;
+    height: 40%;
+    width: 40%;
+    top: 0;
+    right: 0;
+    background: #fff;
+    z-index: 50;
+    border: 1px solid #555252a2;
+    cursor: pointer;
+    display: flex;
+    align-items: end;
+    padding: 40px;
+}
+
+.fullNav .nav-main .bg-nav4 h1 {
+    font-size: 2.5vw;
+    font-weight: 200;
+}
+
+.fullNav .nav-main .bg-nav1:hover {
+    background: #F06446;
+    cursor: pointer;
+    transition: linear 0.3s;
+    color: white;
+}
+
+.fullNav .nav-main .bg-nav2:hover {
+    background: #F06446;
+    cursor: pointer;
+    transition: linear 0.3s;
+    color: white;
+}
+
+.fullNav .nav-main .bg-nav3:hover {
+    background: #F06446;
+    cursor: pointer;
+    transition: linear 0.3s;
+    color: white;
+}
+
+.fullNav .nav-main .bg-nav4:hover {
+    background: #F06446;
+    cursor: pointer;
+    transition: linear 0.3s;
+    color: white;
+}
+
+.nav div p {
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+
+.shutter-div {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    /* z-index: 12; */
+    /* background: #000; */
+}
+
+.bg-shutter1 {
+    height: 100vh;
+    width: 33vw;
+    background: #F06446;
+    z-index: 50;
+}
+
+.bg-shutter2 {
+    height: 100vh;
+    width: 33vw;
+    background: #F06446;
+    z-index: 50;
+}
+
+.bg-shutter3 {
+    height: 100vh;
+    width: 34vw;
+    background: #F06446;
+    z-index: 50;
+}
+
+.hero-section1 {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(./images/ld3BG.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+
+.hero-section1 .s1-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+.hero-section1 .s1-top .logo {
+    height: 80px;
+    width: 80px;
+}
+
+.hero-section1 .s1-top .logo-text {
+    width: 30%;
+    height: 100%;
+    /* background: #000; */
+    overflow: hidden;
+}
+
+.hero-section1 .s1-top .logo-text h1 {
+    font-weight: 400;
+}
+
+.hero-section1 .s1-btm {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-section1 .s1-btm h1 {
+    font-size: 13vw;
+    font-weight: 350;
+}
+
+.hero-section2 {
+    height: 100vh;
+    width: 60vw;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 40px;
+
+}
+
+.hero-section2 .hs2-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hero-section2 .hs2-top .hs2-top-img {
+    width: 15vw;
+    height: 42vh;
+}
+
+.hero-section2 .hs2-top .hs2-top-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hero-section2 .hs2-btm {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.hero-section2 .hs2-btm h1 {
+    font-weight: 300;
+    font-size: 2.6vw;
+}
+
+.hero-section2 .hs2-btm p {
+    font-weight: 100;
+    font-size: 1.1vw;
+    color: #373737;
+}
+
+.hero-section2 .hs2-btm .link-learn-more {
+    font-weight: 100;
+    font-size: 1.2vw;
+    color: #373737;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+/* ========== Hero Section Container ========== */
+.hero-section3 {
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #fff;
+}
+
+/* ========== Project Card Common Styles ========== */
+.project-card {
+  width: 30vw;
+  height: 97vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+/* ========== Media Container ========== */
+.project-media {
+  width: 100%;
+  height: 80%;
+  position: relative;
+}
+
+.project-img,
+.project-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-video {
+  display: none;
+  z-index: 20;
+}
+
+/* ========== Project Info (Title + Text) ========== */
+.project-info h1 {
+  font-size: 1.4vw;
+  color: #373737;
+  font-weight: 700;
+}
+
+.project-info p {
+  font-size: 1.2vw;
+  color: #373737;
+  font-weight: 300;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+/* ========== Circular Scroller Image ========== */
+.hrS3-scroller1 {
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 1;
+}
+
+.hrS3-scroller1 img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ========== Individual Card Variants ========== */
+.project-card1,
+.project-card2,
+.project-card3 {
+  /* You may apply unique styles here if needed */
+}
+
