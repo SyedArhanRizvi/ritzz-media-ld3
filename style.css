@@ -3,7 +3,8 @@
     padding-left: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     overflow-x: hidden;
 }
 
@@ -306,79 +307,590 @@ body{
 
 /* ========== Hero Section Container ========== */
 .hero-section3 {
-  width: 100vw;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
-  background-color: #fff;
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #fff;
 }
 
 /* ========== Project Card Common Styles ========== */
 .project-card {
-  width: 30vw;
-  height: 97vh;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  transition: all 0.4s ease;
+    width: 30vw;
+    height: 97vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.4s ease;
 }
 
 /* ========== Media Container ========== */
 .project-media {
-  width: 100%;
-  height: 80%;
-  position: relative;
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+    position: relative;
 }
 
 .project-img,
 .project-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .project-video {
-  display: none;
-  z-index: 20;
+    display: none;
+    z-index: 20;
 }
 
 /* ========== Project Info (Title + Text) ========== */
 .project-info h1 {
-  font-size: 1.4vw;
-  color: #373737;
-  font-weight: 700;
+    font-size: 1.4vw;
+    color: #373737;
+    font-weight: 700;
 }
 
 .project-info p {
-  font-size: 1.2vw;
-  color: #373737;
-  font-weight: 300;
-  font-style: italic;
-  text-decoration: underline;
+    font-size: 1.2vw;
+    color: #373737;
+    font-weight: 300;
+    font-style: italic;
+    text-decoration: underline;
 }
 
 /* ========== Circular Scroller Image ========== */
 .hrS3-scroller1 {
-  height: 150px;
-  width: 150px;
-  position: absolute;
-  border-radius: 50%;
-  overflow: hidden;
-  opacity: 1;
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+    opacity: 1;
 }
 
 .hrS3-scroller1 img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hero-section3 {
+    width: 100vw;
+    padding: 30px;
 }
 
 /* ========== Individual Card Variants ========== */
 .project-card1,
 .project-card2,
 .project-card3 {
-  /* You may apply unique styles here if needed */
+    /* background: red; */
+    /* height: 90vh;
+    /* position: relative; */
+    position: relative;
+    overflow: hidden;
 }
 
+.hero-section3 .project-card1 .pc1-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 50;
+    /* opacity: 0; */
+}
+
+.hero-section3 .project-card1 .pc1-hover img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hero-section3 .project-card2 .pc2-hover {
+    position: absolute;
+    /* top: 0;
+    left: 0; */
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    /* z-index: 50; */
+    position: absolute;
+    pointer-events: none;
+}
+
+.hero-section3 .project-card2 .pc2-hover img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hero-section3 .project-card3 .pc3-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    /* z-index: 50; */
+}
+
+.hero-section3 .project-card3 .pc3-hover img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hero-section4 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    /* justify-content: space-between; */
+    /* padding: 30px; */
+}
+
+.hero-section4 .form-section {
+    height: 100%;
+    width: 30%;
+    /* padding: 30px; */
+
+}
+
+.hero-section4 .form-section img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: right;
+
+}
+
+.hero-section4 .form-section form {
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 30px;
+}
+
+.hero-section4 .form-section form div h1 {
+    font-size: 1.8vw;
+}
+
+.hero-section4 .form-section form div {
+    width: 100%;
+}
+
+.hero-section4 .form-section form div input {
+    width: 100%;
+    height: 3.2vw;
+    border-radius: 12px;
+    border: 1px solid gray;
+    padding-left: 10px;
+}
+
+.hero-section4 .form-section form div .btn {
+    background: #F06446;
+    font-weight: bold;
+    border-radius: 40px;
+    border: none;
+    color: white;
+    font-size: 1.1vw;
+    cursor: pointer;
+}
+
+.hero-section4 .form-section form div textarea {
+    width: 100%;
+    height: 4vw;
+    border-radius: 12px;
+    border: 1px solid gray;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.hero-section4 .text-section {
+    height: 100%;
+    width: 68%;
+    background: #F06446;
+    padding: 20px;
+}
+
+.hero-section4 .text-section .hs4-info-div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* background: red; */
+    flex-direction: column;
+    color: white;
+    padding: 20px;
+}
+
+.hero-section4 .text-section .hs4-info-div div {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hero-section4 .text-section .hs4-info-div div p {
+    font-size: 2.6vw;
+    font-weight: lighter;
+}
+
+.hero-section4 .text-section .hs4-info-div div .link-learn {
+    font-size: 1.6vw;
+    font-weight: lighter;
+    font-style: italic;
+    text-decoration: underline;
+
+}
+
+.hero-section4 .text-section .hs4-info-div .hs4-div2 {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+
+}
+
+.hero-section4 .text-section .hs4-info-div div h1 {
+    font-size: 7.6vw;
+    font-weight: lighter;
+    margin-right: 4vw;
+}
+
+.hero-section5 {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 60px;
+}
+
+.projects-cards-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.projects-cards-section .large-card {
+    width: 35%;
+    height: 88vh;
+    /* border: 2px solid black; */
+}
+
+.projects-cards-section .large-card .img {
+    width: 100%;
+    height: 92%;
+}
+
+.projects-cards-section .large-card .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.projects-cards-section .small-cards-section {
+    width: 40%;
+    height: 88vh;
+    /* border: 2px solid red; */
+}
+
+.projects-cards-section .small-cards-section .small-card1 {
+    height: 48%;
+    width: 100%;
+}
+
+.projects-cards-section .small-cards-section .small-card1 .img {
+    width: 100%;
+    height: 80%;
+}
+
+.projects-cards-section .small-cards-section .small-card1 .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.projects-cards-section .small-cards-section .small-card2 {
+    height: 48%;
+    width: 100%;
+}
+
+.projects-cards-section .small-cards-section .small-card2 .img {
+    width: 100%;
+    height: 80%;
+}
+
+.projects-cards-section .small-cards-section .small-card2 .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* object-position: top -20; */
+}
+
+.hero-section5 .carousel-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-section5 .carousel-section .carousel {
+    width: 78%;
+    height: 26vh;
+    /* background: #000; */
+    margin-bottom: 10px;
+    background: #000;
+    position: relative;
+}
+
+.hero-section5 .carousel-section .carousel .carousel-overlay-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #0000004e;
+    height: 100%;
+    width: 15%;
+}
+
+.hero-section5 .carousel-section .carousel .carousel-overlay-2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #0000004e;
+    height: 100%;
+    width: 15%;
+}
+
+.hero-section5 .about-our-services {
+    width: 100%;
+    min-height: 100vh;
+    background: #0F3C37;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding-bottom: 50px;
+    gap: 60px;
+}
+
+.hero-section5 .about-our-services .service-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    padding-right: 80px;
+}
+.hero-section5 .about-our-services .service-header p {
+    font-weight: 400;
+    font-style: italic;
+    text-decoration: underline;
+    font-size: 1.3vw;
+}
+.hero-section5 .about-our-services .service-header button {
+    width: 12vw;
+    padding: 10px;
+    font-size: 1.2vw;
+    font-weight: 300;
+    border-radius: 50px;
+    /* background: #fff; */
+    font-style: italic;
+    border: 1px solid #fff;
+    color: white;
+    cursor: pointer;
+    background: #0F3C37;
+    transition: all 0.5s;
+}
+
+.hero-section5 .about-our-services .service-header button:hover {
+    background: #fff;
+    border: none;
+    color: black;
+}
+
+.hero-section5 .about-our-services .service-header h1 {
+    font-weight: 600;
+    font-size: 2.4vw;
+    font-style: italic;
+}
+
+.hero-section5 .about-our-services .servive-main {
+    width: 80%;
+    margin: auto;
+
+}
+
+.hero-section5 .about-our-services .servive-main h1 {
+    font-size: 3.2vw;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.hero-section5 .about-our-services .service-btm {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    padding-right: 80px;
+}
+
+.hero-section5 .about-our-services .service-btm .user-div {
+    /* border: 1px solid white; */
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+.hero-section5 .about-our-services .service-btm .user-div .img {
+    width: 30%;
+    height: 90%;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.hero-section5 .about-our-services .service-btm .user-div .img img{
+    height: 100%;
+    width: 100%;
+}
+.hero-section5 .about-our-services .service-btm .user-div .user-info h1{
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.9vw;
+}
+.hero-section5 .about-our-services .service-btm .user-div .user-info p{
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1vw;
+}
+.hero-section6 {
+    width: 100vw;
+    /* min-height: 100vh; */
+    background: #000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    gap: 20px;
+}
+.hero-section6 .sr {
+    width: 100%; 
+    /* height: 12vh; */
+    border-bottom: 1px solid gray;
+    padding: 30px;
+    display: flex;
+    align-items: flex-end;
+    padding-right: 60px;
+    cursor: pointer;
+}
+
+.hero-section6 .sr h1{
+    font-size: 3vw;
+    font-style: italic;
+    display: none;
+
+}
+.hero-section6 div p {
+    font-size: 2vw;
+    font-style: italic;
+}
+/* #0F3C37; */
+
+footer {
+    width: 90vw;
+    background: #0F3C37;
+    color: white;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60vh;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-style: italic;
+}
+footer .top-ftr {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+footer .top-ftr .left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+footer .top-ftr .left .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+footer .top-ftr .left .footer-links div{
+    display: flex;
+    gap: 20px;
+    text-align: start;
+}
+footer .top-ftr .left .social-media{
+    display: flex;
+    gap: 30px;
+}
+
+footer .top-ftr .rght {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+footer .top-ftr .rght div{
+    display: flex;
+    /* gap: 10px; */
+}
+footer .top-ftr .rght div .email-inpt {
+    width: 18vw;
+    height: 2.8vw;
+    padding-left: 10px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border: 1px solid gray;
+    background: none;
+    color: white;
+}
+footer .top-ftr .rght div button {
+    width: 7vw;
+    height: 2.8vw;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: 1px solid gray;
+    background: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+footer .top-ftr .rght div label{
+    display: flex;
+    gap: 10px;
+}
+footer .btm-ftr {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid gray;
+    padding-top: 20px;
+}
+footer .btm-ftr div {
+    border-right: 1px solid gray;
+    padding-right: 8px;
+}

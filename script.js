@@ -69,51 +69,84 @@ window.addEventListener("scroll", () => {
 
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
-const cards = document.querySelectorAll(".project-card");
 
-cards.forEach((card) => {
-  const video = card.querySelector(".project-video");
-  const img = card.querySelector(".project-img");
+// const projectCards = document.querySelectorAll(".project-card");
 
-  card.addEventListener("mouseenter", () => {
-    cards.forEach((c) => {
-      if (c !== card) c.style.display = "none";
-    });
+// projectCards.forEach((card)=>{
+//   card.addEventListener("mousemove", (det)=>{
 
-    img.style.display = "none";
-    video.style.display = "block";
+//   });
+//   card.addEventListener('mouseleave', ()=>{
+//     document.querySelector("")
+//   })
+// })
 
-    gsap.to(".hero-section3", {
-      backgroundColor: "black",
-      duration: 1,
-      ease: "power2.out",
-    });
+const projectCard1 = document.querySelector(".project-card1");
+const projectCard2 = document.querySelector(".project-card2");
+const projectCard3 = document.querySelector(".project-card3");
 
-    gsap.to(card, {
-      height: "100%",
-      width: "100%",
-      duration: 1,
-      ease: "power2.out",
-    });
+const pc1Hover = document.querySelector(".pc1-hover");
+const pc2Hover = document.querySelector(".pc2-hover");
+const pc3Hover = document.querySelector(".pc3-hover");
+
+projectCard1.addEventListener("mousemove", (e) => {
+  const rect = projectCard1.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top; // Move both if needed — remove pc2Hover if it's not required
+
+  pc1Hover.style.zIndex = 50;
+  pc2Hover.style.zIndex = 50;
+  pc3Hover.style.zIndex = 50;
+  gsap.to(pc1Hover, {
+    x: mx,
+    y: my,
   });
+});
 
-  card.addEventListener("mouseleave", () => {
-    cards.forEach((c) => (c.style.display = "flex"));
+projectCard1.addEventListener("mouseleave", () => {
+  pc1Hover.style.zIndex = 0;
+  pc2Hover.style.zIndex = 0;
+  pc3Hover.style.zIndex = 0;
+});
 
-    img.style.display = "block";
-    video.style.display = "none";
+projectCard2.addEventListener("mousemove", (e) => {
+  const rect = projectCard2.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top; // Move both if needed — remove pc2Hover if it's not required
 
-    gsap.to(".hero-section3", {
-      backgroundColor: "white",
-      duration: 0.5,
-      ease: "power2.out",
-    });
+  pc1Hover.style.zIndex = 50;
+  pc2Hover.style.zIndex = 50;
+  pc3Hover.style.zIndex = 50;
 
-    gsap.to(card, {
-      height: "97vh",
-      width: "33vw",
-      duration: 0.5,
-      ease: "power2.out",
-    });
+  gsap.to(pc2Hover, {
+    x: mx,
+    y: my,
   });
+});
+
+projectCard2.addEventListener("mouseleave", () => {
+  pc1Hover.style.zIndex = 0;
+  pc2Hover.style.zIndex = 0;
+  pc3Hover.style.zIndex = 0;
+});
+
+projectCard3.addEventListener("mousemove", (e) => {
+  const rect = projectCard3.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top; // Move both if needed — remove pc2Hover if it's not required
+
+  pc1Hover.style.zIndex = 50;
+  pc2Hover.style.zIndex = 50;
+  pc3Hover.style.zIndex = 50;
+
+  gsap.to(pc3Hover, {
+    x: mx,
+    y: my,
+  });
+});
+
+projectCard3.addEventListener("mouseleave", () => {
+  pc1Hover.style.zIndex = 0;
+  pc2Hover.style.zIndex = 0;
+  pc3Hover.style.zIndex = 0;
 });
