@@ -47,6 +47,7 @@ body {
     background: #fff;
     position: relative;
     cursor: pointer;
+    opacity: 50;
 }
 
 .fullNav .nav-main .bg-nav1 {
@@ -644,13 +645,23 @@ body {
 
 }
 
-.hero-section4 .text-section .hs4-info-div div h1 {
-    font-size: 7.6vw;
+.hero-section4 .text-section .hs4-info-div div button {
+    font-size: 4.5vw;
     font-weight: lighter;
     margin-right: 4vw;
     cursor: pointer;
+    padding: 1vw 2vw;
+    border: 1px solid white;
+    background: none;
+    border-radius: 100px;
+    font-style: italic;
+    color: white;
 }
-
+/* .hero-section4 .text-section .hs4-info-div div button:hover{
+    /* background: white; */
+    /* color: black;
+    font-weight: lighter;
+} */ 
 .hero-section5 {
     width: 100vw;
     display: flex;

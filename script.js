@@ -414,7 +414,7 @@ function heroSection4Animations() {
     },
   });
   let s4BgChecker = false;
-  document.querySelector(".hs4-div2 h1").addEventListener("click", () => {
+  document.querySelector(".hs4-div2 button").addEventListener("click", () => {
     let frm = document.querySelector(".hs4-form");
     let img = document.querySelector(".form-section img");
     let formSection = document.querySelector(".form-section");
@@ -428,9 +428,10 @@ function heroSection4Animations() {
         color: "white",
         zIndex: 50,
       });
-      gsap.to(".text-section .hs4-info-div .hs4-div2 h1", {
+      gsap.to(".text-section .hs4-info-div .hs4-div2 button", {
         color: "white",
         zIndex: 50,
+        border: "1px solid white",
       });
 
       frm.style.display = "none";
@@ -447,9 +448,10 @@ function heroSection4Animations() {
         color: "black",
         zIndex: 50,
       });
-      gsap.to(".text-section .hs4-info-div .hs4-div2 h1", {
+      gsap.to(".text-section .hs4-info-div .hs4-div2 button", {
         color: "black",
         zIndex: 50,
+        border: "1px solid black",
       });
       frm.style.display = "flex";
       formSection.style.padding = "30px";
@@ -547,7 +549,6 @@ function section6HoverAnimate() {
 }
 section6HoverAnimate();
 
-
 function footerAnimation() {
   const footer = document.querySelector("footer");
   if (!footer) return;
@@ -559,7 +560,7 @@ function footerAnimation() {
     { scale: 0.1, opacity: 0 },
     {
       scale: 1,
-      opacity:1,
+      opacity: 1,
       duration: 4,
       ease: "linear",
       scrollTrigger: {
@@ -575,3 +576,38 @@ function footerAnimation() {
 }
 
 footerAnimation();
+
+function aboutOurServicesAnimations() {
+  let para_container = document.querySelector(".servive-main h1");
+  if (!para_container) return; // Split heading into spans
+
+  let split_para = para_container.textContent.split("");
+  para_container.textContent = "";
+  split_para.forEach((char) => {
+    let span = document.createElement("span");
+    span.textContent = char;
+    span.style.display = "inline-block"; // Required for transform animations
+    span.style.opacity = 0; // Start hidden
+    para_container.appendChild(span);
+  }); // Select all span letters
+
+  const spans = para_container.querySelectorAll("span"); // Animate each letter using GSAP and ScrollTrigger
+
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.to(spans, {
+    opacity: 1,
+    y: 0,
+    stagger: 0.03,
+    duration: 0.6,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: para_container,
+      start: "top 80%", // Adjust as needed
+      end: "top 30%",
+      scrub: false,
+      markers: false,
+    },
+  });
+}
+
+aboutOurServicesAnimations();
