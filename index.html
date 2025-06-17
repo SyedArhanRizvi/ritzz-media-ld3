@@ -332,49 +332,100 @@ close
         </div>
 
         <div class="hero-section5">
+          <!-- This is project card section where scroll animation will work -->
           <div class="projects-cards-section">
-            <div class="large-card">
-              <div class="img">
-                <img
-                  src="https://cdn.prod.website-files.com/64e3117c2169dbd1fa21f870/64e3461ad2b49f6b1e233d6b_1674045545-1-bermondsey-1-copy.jpg"
-                  alt=""
-                />
-              </div>
-              <div>
-                <h1>Zil Residency</h1>
-                <p>View Project</p>
-              </div>
+            <div class="hs5-title">
+              <h1>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Excepturi dolore vitae eius cupidptas.
+              </h1>
             </div>
-            <div class="small-cards-section">
-              <div class="small-card1">
+
+            <!-- Project Cards -->
+            <div class="hs5-project-cont">
+              <div class="project-card-hs5">
                 <div class="img">
                   <img
-                    src="https://cdn.prod.website-files.com/64e3117c2169dbd1fa21f870/64e3463edc75826a9cf491f4_1663877324-dl-rhe-ts-1388-print.webp"
+                    src="https://i.pinimg.com/736x/79/95/3d/79953dcf452ff6acc774e088eeac155d.jpg"
                     alt=""
                   />
                 </div>
-                <div>
-                  <h1>Zil Residency</h1>
-                  <p>View Project</p>
+                <div class="text">
+                  <h1>This is project name 1</h1>
+                  <button>View Project</button>
                 </div>
               </div>
-              <div class="small-card2">
+
+              <div class="project-card-hs5">
                 <div class="img">
                   <img
-                    src="https://cdn.prod.website-files.com/64e3117c2169dbd1fa21f870/64e3465edc75826a9cf4c2d3_1686739600-72f544af-bf04-4de3-9c99-3c3f747e9737.webp"
+                    src="https://i.pinimg.com/736x/6f/50/1f/6f501f424a904f012a1134ad0fb96742.jpg"
                     alt=""
                   />
                 </div>
-                <div>
-                  <h1>Zil Residency</h1>
-                  <p>View Project</p>
+                <div class="text">
+                  <h1>This is project name</h1>
+                  <button>View Project</button>
+                </div>
+              </div>
+
+              <div class="project-card-hs5">
+                <div class="img">
+                  <img
+                    src="https://i.pinimg.com/736x/44/65/64/4465649e9fe4f638e027c3754662e734.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="text">
+                  <h1>This is project name</h1>
+                  <button>View Project</button>
+                </div>
+              </div>
+
+              <div class="project-card-hs5">
+                <div class="img">
+                  <img
+                    src="https://i.pinimg.com/736x/7a/a1/94/7aa19415266b8ad0ad570b7d2ecc3e8e.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="text">
+                  <h1>This is project name</h1>
+                  <button>View Project</button>
+                </div>
+              </div>
+
+              <div class="project-card-hs5">
+                <div class="img">
+                  <img
+                    src="https://i.pinimg.com/736x/85/91/35/859135fab4ccb5337ac8ab2664f84c52.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="text">
+                  <h1>This is project name</h1>
+                  <button>View Project</button>
+                </div>
+              </div>
+
+              <div class="project-card-hs5">
+                <div class="img">
+                  <img
+                    src="https://i.pinimg.com/736x/79/95/3d/79953dcf452ff6acc774e088eeac155d.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="text">
+                  <h1>This is project name</h1>
+                  <button>View Project</button>
                 </div>
               </div>
             </div>
           </div>
+
+          <!-- This is carousel where we are showing our trusted partners -->
           <div class="carousel-section">
             <div class="carousel">
-
               <div class="carousel-imgs">
                 <div class="img">
                   <img
@@ -451,7 +502,7 @@ close
                   />
                 </div>
               </div>
-            <div class="carousel-imgs">
+              <div class="carousel-imgs">
                 <div class="img">
                   <img
                     src="https://static.vecteezy.com/system/resources/previews/024/555/175/non_2x/tata-logo-transparent-free-png.png"
@@ -493,6 +544,8 @@ close
               <div class="carousel-overlay-2"></div>
             </div>
           </div>
+
+          <!-- This is about our services section -->
           <div class="about-our-services">
             <div class="service-header">
               <p>Learn More.</p>
@@ -588,7 +641,7 @@ close
               to life with style and precision.
             </p>
           </div>
-          <div class="sr sr1">
+          <div class="sr sr6">
             <h1>Property Buying & Selling</h1>
             <p>
               We assist clients in finding their dream home or selling their
@@ -675,6 +728,9 @@ close
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+    </script>
     <script src="./script.js"></script>
   </body>
 </html>

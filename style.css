@@ -662,68 +662,88 @@ body {
 
 .projects-cards-section {
     width: 100%;
+    height: 100vh;
+    background: #000;
     display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    align-items: center;
+    padding: 20px;
+    padding-right: 50px;
+    gap: 80px;
+    overflow-x: hidden;
+}
+
+.projects-cards-section .hs5-title {
+    width: 30vw;
+    text-align: center;
+}
+
+.projects-cards-section .hs5-title h1 {
+    color: white;
+    font-size: 1.6vw;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.hs5-project-cont {
+    position: relative;
+    height: 200vh;
+    /* Needed for scrolling */
+    overflow: hidden;
+}
+
+.project-card-hs5 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    height: 300px;
+    background: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.projects-cards-section .hs5-project-cont .project-card-hs5 .img {
+    height: 100%;
+    width: 100%;
+}
+
+.projects-cards-section .hs5-project-cont .project-card-hs5 .img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.projects-cards-section .hs5-project-cont .project-card-hs5 .text {
+    position: absolute;
+    bottom: 6%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.projects-cards-section .large-card {
-    width: 35%;
-    height: 88vh;
-    /* border: 2px solid black; */
-}
-
-.projects-cards-section .large-card .img {
+    gap: 10px;
     width: 100%;
-    height: 92%;
+    background: #00000096;
+    padding: 10px;
 }
 
-.projects-cards-section .large-card .img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.projects-cards-section .hs5-project-cont .project-card-hs5 .text h1 {
+    color: white;
 }
 
-.projects-cards-section .small-cards-section {
-    width: 40%;
-    height: 88vh;
-    /* border: 2px solid red; */
-}
-
-.projects-cards-section .small-cards-section .small-card1 {
-    height: 48%;
-    width: 100%;
-}
-
-.projects-cards-section .small-cards-section .small-card1 .img {
-    width: 100%;
-    height: 80%;
-}
-
-.projects-cards-section .small-cards-section .small-card1 .img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-
-.projects-cards-section .small-cards-section .small-card2 {
-    height: 48%;
-    width: 100%;
-}
-
-.projects-cards-section .small-cards-section .small-card2 .img {
-    width: 100%;
-    height: 80%;
-}
-
-.projects-cards-section .small-cards-section .small-card2 .img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* object-position: top -20; */
+.projects-cards-section .hs5-project-cont .project-card-hs5 .text button {
+    padding: 0.6vw 3vw;
+    background: white;
+    color: black;
+    border-radius: 30px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .hero-section5 .carousel-section {
@@ -779,6 +799,7 @@ body {
     0% {
         transform: translateX(60%);
     }
+
     100% {
         transform: translateX(-100%);
     }
@@ -791,18 +812,18 @@ body {
     height: 100%;
     width: 25%;
     background: linear-gradient(to right, #000 5%, transparent);
-    pointer-events: none; 
-    z-index: 60; 
+    pointer-events: none;
+    z-index: 60;
 }
 
 .hero-section5 .carousel-section .carousel .carousel-overlay-2 {
-   position: absolute;
+    position: absolute;
     top: 0;
     right: 0;
     height: 100%;
     width: 25%;
     background: linear-gradient(to left, #000 5%, transparent 100%);
-    pointer-events: none; 
+    pointer-events: none;
     z-index: 60;
 }
 
@@ -927,7 +948,7 @@ body {
 
 .hero-section6 .sr {
     width: 100%;
-    /* height: 12vh; */
+    height: 20vh;
     border-bottom: 1px solid gray;
     padding: 30px;
     display: flex;
@@ -939,31 +960,34 @@ body {
 .hero-section6 .sr h1 {
     font-size: 3vw;
     font-style: italic;
-    display: none;
+    display: flex;
 
 }
 
 .hero-section6 div p {
     font-size: 2vw;
     font-style: italic;
+    display: none;
 }
 
 /* #0F3C37; */
 
 footer {
-    width: 90vw;
+    width: 100vw;
+    height: 100vh;
     background: #0F3C37;
     color: white;
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    min-height: 60vh;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding: 20px;
     font-style: italic;
+    box-sizing: border-box;
+    overflow: hidden;
 }
+
 
 footer .top-ftr {
     width: 90%;

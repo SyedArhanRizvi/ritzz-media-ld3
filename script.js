@@ -31,7 +31,7 @@ function shutterAnimation() {
   gsap.from(".logo-text h1", {
     y: "60%",
     duration: 2.6,
-    opacity: 0,
+    // opacity: 0,
     delay: 2.5,
   });
   let hero_txt = document.querySelector(".s1-btm-txt");
@@ -48,7 +48,7 @@ function shutterAnimation() {
     duration: 2,
     stagger: 0.05,
     delay: 2.6,
-    opacity: 0,
+    // opacity: 0,
   });
 }
 shutterAnimation();
@@ -433,9 +433,9 @@ function heroSection4Animations() {
         zIndex: 50,
       });
 
-      frm.style.display = 'none';
-      img.style.display = 'flex';
-      
+      frm.style.display = "none";
+      img.style.display = "flex";
+
       formSection.style.padding = "0px";
       s4BgChecker = false;
     } else {
@@ -451,13 +451,127 @@ function heroSection4Animations() {
         color: "black",
         zIndex: 50,
       });
-      frm.style.display = 'flex';
+      frm.style.display = "flex";
       formSection.style.padding = "30px";
-      img.style.display = 'none';
+      img.style.display = "none";
       s4BgChecker = true;
     }
-
   });
 }
 
 heroSection4Animations();
+
+function rotateCardSectionAnimation() {
+  let projectCards = document.querySelectorAll(".project-card-hs5");
+
+  projectCards.forEach((card, i) => {
+    // Each card will follow a timeline from right-bottom → center → left-bottom
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: card,
+        scroller: "body",
+        start: "top 80%",
+        end: "top 20%",
+        scrub: true,
+        markers: true,
+      },
+    }); // Start: off-screen bottom right
+
+    gsap.set(card, {
+      x: 300,
+      y: 300,
+      opacity: 0,
+    }); // Step 1: move to center
+
+    tl.to(card, {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power2.inOut",
+    }); // Step 2: move off-screen to bottom left
+
+    tl.to(card, {
+      x: -300,
+      y: 300,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.inOut",
+    });
+  });
+}
+
+// rotateCardSectionAnimation();
+
+function section6HoverAnimate() {
+  const alls6Divs = document.querySelectorAll(".sr");
+  console.log(alls6Divs[0].classList[1]);
+  alls6Divs.forEach((pertDiv) => {
+    pertDiv.addEventListener("mouseenter", (e) => {
+      let trg_elm = e.target.classList[1];
+      let get_trg_elm = document.querySelector(`.${trg_elm}`);
+
+      let child0 = get_trg_elm.children[0];
+      let child1 = get_trg_elm.children[1];
+
+      gsap.to(child0, {
+        scale: 0.9,
+        duration: 0.2,
+        onComplete: () => {
+          child0.style.display = "none";
+          child1.style.display = "flex";
+          gsap.fromTo(child1, { scale: 0.9 }, { scale: 1, duration: 0.2 });
+        },
+      });
+    });
+
+    pertDiv.addEventListener("mouseleave", (e) => {
+      let trg_elm = e.target.classList[1];
+      let get_trg_elm = document.querySelector(`.${trg_elm}`);
+
+      let child0 = get_trg_elm.children[0];
+      let child1 = get_trg_elm.children[1];
+
+      gsap.to(child1, {
+        scale: 0.9,
+        duration: 0.2,
+        onComplete: () => {
+          child1.style.display = "none";
+          child0.style.display = "flex";
+
+          gsap.fromTo(child0, { scale: 0.9 }, { scale: 1, duration: 0.2 });
+        },
+      });
+    });
+  });
+}
+section6HoverAnimate();
+
+
+function footerAnimation() {
+  const footer = document.querySelector("footer");
+  if (!footer) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.fromTo(
+    footer,
+    { scale: 0.1, opacity: 0 },
+    {
+      scale: 1,
+      opacity:1,
+      duration: 4,
+      ease: "linear",
+      scrollTrigger: {
+        trigger: footer,
+        start: "top 80%",
+        end: "top 50%",
+        scrub: 1,
+        markers: false,
+        pin: true,
+      },
+    }
+  );
+}
+
+footerAnimation();
