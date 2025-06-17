@@ -253,7 +253,7 @@ body {
 
 .hero-section2 {
     height: 100vh;
-    width: 60vw;
+    width: 100vw;
     /* background-color: red; */
     display: flex;
     justify-content: space-between;
@@ -266,18 +266,21 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    /* background: yellow; */
+    gap: 5vw;
+    white-space: nowrap;
 }
-
+.hero-section2 .hs2-top .hs2-top-img h1{
+    font-size: 12vw;
+    font-weight: lighter;
+    font-style: italic;
+}
 .hero-section2 .hs2-top .hs2-top-img {
-    width: 15vw;
-    height: 42vh;
+    width: 100%;
+    
 }
 
-.hero-section2 .hs2-top .hs2-top-img img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
 
 .hero-section2 .hs2-btm {
     width: 60%;
@@ -332,6 +335,30 @@ body {
     height: 80%;
     overflow: hidden;
     position: relative;
+    /* background: yellow; */
+}
+.project-card .project-media .hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #0000009e;
+    z-index: 30;
+    height: 100%;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.project-card .project-media .hover-overlay div {
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    overflow: hidden;
+    color: white;
+}
+.project-card .project-media .hover-overlay div img {
+    height: 100%;
+    width: 100%;
 }
 
 .project-img,
@@ -342,8 +369,34 @@ body {
 }
 
 .project-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 50;
     display: none;
-    z-index: 20;
+}
+
+.project-video2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 50;
+    /* background: #000; */
+    display: none;
+}
+
+.project-video3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 50;
+    display: none;
 }
 
 /* ========== Project Info (Title + Text) ========== */
@@ -397,12 +450,12 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    height: 150px;
-    width: 150px;
+    height: 130px;
+    width: 130px;
     border-radius: 50%;
     overflow: hidden;
     z-index: 50;
-    /* opacity: 0; */
+    opacity: 0;
 }
 
 .hero-section3 .project-card1 .pc1-hover img {
@@ -415,13 +468,14 @@ body {
     position: absolute;
     /* top: 0;
     left: 0; */
-    height: 150px;
-    width: 150px;
+    height: 130px;
+    width: 130px;
     border-radius: 50%;
     overflow: hidden;
     /* z-index: 50; */
     position: absolute;
     pointer-events: none;
+    opacity: 0;
 }
 
 .hero-section3 .project-card2 .pc2-hover img {
@@ -434,11 +488,12 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    height: 150px;
-    width: 150px;
+    height: 130px;
+    width: 130px;
     border-radius: 50%;
     overflow: hidden;
     /* z-index: 50; */
+    opacity: 0;
 }
 
 .hero-section3 .project-card3 .pc3-hover img {
@@ -467,59 +522,82 @@ body {
     width: 100%;
     object-fit: cover;
     object-position: right;
-
+    display: flex;
+/*  */
+}
+ /* Hero Section 4 And This Is User Form */
+/* Hero Section 4 And This Is User Form */
+.hero-section4 .form-section form {
+  height: 100%;
+  width: 100%;
+  border-right: 1px solid #5e5b5b86;
+  padding-right: 10px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 30px;
 }
 
-.hero-section4 .form-section form {
-    height: 100%;
-    width: 100%;
-    display: none;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 30px;
+.input-group {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+.input-group i {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: gray;
+  font-size: 1vw;
+  pointer-events: none;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 1vw 1vw 1vw 3vw;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1vw;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #f06446;
 }
 
 .hero-section4 .form-section form div h1 {
-    font-size: 1.8vw;
+  font-size: 1.8vw;
 }
 
 .hero-section4 .form-section form div {
-    width: 100%;
+  width: 100%;
 }
 
-.hero-section4 .form-section form div input {
-    width: 100%;
-    height: 3.2vw;
-    border-radius: 12px;
-    border: 1px solid gray;
-    padding-left: 10px;
+.hero-section4 .form-section form .btn {
+  background: #f06446;
+  font-weight: bold;
+  border-radius: 40px;
+  border: none;
+  color: white;
+  font-size: 1.1vw;
+  cursor: pointer;
+  padding: 0.8vw 2vw;
 }
 
-.hero-section4 .form-section form div .btn {
-    background: #F06446;
-    font-weight: bold;
-    border-radius: 40px;
-    border: none;
-    color: white;
-    font-size: 1.1vw;
-    cursor: pointer;
-}
-
-.hero-section4 .form-section form div textarea {
-    width: 100%;
-    height: 4vw;
-    border-radius: 12px;
-    border: 1px solid gray;
-    padding-left: 10px;
-    padding-top: 10px;
-}
 
 .hero-section4 .text-section {
     height: 100%;
     width: 68%;
     background: #F06446;
     padding: 20px;
+    overflow: hidden;
+    
 }
 
 .hero-section4 .text-section .hs4-info-div {
@@ -564,6 +642,7 @@ body {
     font-size: 7.6vw;
     font-weight: lighter;
     margin-right: 4vw;
+    cursor: pointer;
 }
 
 .hero-section5 {
