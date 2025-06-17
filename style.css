@@ -521,7 +521,9 @@ body {
     align-items: center;
 
 }
-
+.hero-section4 .form-container{
+    display: none;
+}
 .hero-section4 .left {
     width: 40%;
     height: 100%;

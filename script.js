@@ -370,98 +370,98 @@ function hero3VideoPlay3() {
 }
 hero3VideoPlay3();
 
-function heroSection4Animations() {
-  const text_container = document.querySelector(".hs4-info-div div p");
-  const split_text = text_container.textContent.split("");
-  text_container.textContent = "";
+// function heroSection4Animations() {
+//   const text_container = document.querySelector(".hs4-info-div div p");
+//   const split_text = text_container.textContent.split("");
+//   text_container.textContent = "";
 
-  split_text.forEach((text) => {
-    const span = document.createElement("span");
-    span.textContent = text;
-    text_container.appendChild(span);
-  });
+//   split_text.forEach((text) => {
+//     const span = document.createElement("span");
+//     span.textContent = text;
+//     text_container.appendChild(span);
+//   });
 
-  gsap.registerPlugin(ScrollTrigger);
+//   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from(".hs4-info-div div p span", {
-    x: "-10%",
-    opacity: 0,
-    // duration: 1,
-    ease: "power2.out",
-    stagger: 0.02,
-    scrollTrigger: {
-      trigger: ".hs4-info-div",
-      scroller: "body",
-      start: "top 90%",
-      toggleActions: "play none none reverse",
-      once: true,
-      // scrub:2
-    },
-  });
+//   gsap.from(".hs4-info-div div p span", {
+//     x: "-10%",
+//     opacity: 0,
+//     // duration: 1,
+//     ease: "power2.out",
+//     stagger: 0.02,
+//     scrollTrigger: {
+//       trigger: ".hs4-info-div",
+//       scroller: "body",
+//       start: "top 90%",
+//       toggleActions: "play none none reverse",
+//       once: true,
+//       // scrub:2
+//     },
+//   });
 
-  gsap.from(".hs4-info-div div .link-learn", {
-    x: "-10%",
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out",
-    stagger: 0.02,
-    scrollTrigger: {
-      trigger: ".hs4-info-div",
-      scroller: "body",
-      start: "top 80%",
-      toggleActions: "play none none reverse",
-      // scrub:2
-    },
-  });
-  let s4BgChecker = false;
-  document.querySelector(".hs4-div2 button").addEventListener("click", () => {
-    let frm = document.querySelector(".hs4-form");
-    let img = document.querySelector(".form-section img");
-    let formSection = document.querySelector(".form-section");
+//   gsap.from(".hs4-info-div div .link-learn", {
+//     x: "-10%",
+//     opacity: 0,
+//     duration: 1,
+//     ease: "power2.out",
+//     stagger: 0.02,
+//     scrollTrigger: {
+//       trigger: ".hs4-info-div",
+//       scroller: "body",
+//       start: "top 80%",
+//       toggleActions: "play none none reverse",
+//       // scrub:2
+//     },
+//   });
+//   let s4BgChecker = false;
+//   document.querySelector(".hs4-div2 button").addEventListener("click", () => {
+//     let frm = document.querySelector(".hs4-form");
+//     let img = document.querySelector(".form-section img");
+//     let formSection = document.querySelector(".form-section");
 
-    if (s4BgChecker) {
-      gsap.to(".text-section", {
-        backgroundColor: "#F06446",
-        color: "white",
-      });
-      gsap.to(".text-section .hs4-info-div div p", {
-        color: "white",
-        zIndex: 50,
-      });
-      gsap.to(".text-section .hs4-info-div .hs4-div2 button", {
-        color: "white",
-        zIndex: 50,
-        border: "1px solid white",
-      });
+//     if (s4BgChecker) {
+//       gsap.to(".text-section", {
+//         backgroundColor: "#F06446",
+//         color: "white",
+//       });
+//       gsap.to(".text-section .hs4-info-div div p", {
+//         color: "white",
+//         zIndex: 50,
+//       });
+//       gsap.to(".text-section .hs4-info-div .hs4-div2 button", {
+//         color: "white",
+//         zIndex: 50,
+//         border: "1px solid white",
+//       });
 
-      frm.style.display = "none";
-      img.style.display = "flex";
+//       frm.style.display = "none";
+//       img.style.display = "flex";
 
-      formSection.style.padding = "0px";
-      s4BgChecker = false;
-    } else {
-      gsap.to(".text-section", {
-        backgroundColor: "white",
-        color: "black",
-      });
-      gsap.to(".text-section .hs4-info-div div p", {
-        color: "black",
-        zIndex: 50,
-      });
-      gsap.to(".text-section .hs4-info-div .hs4-div2 button", {
-        color: "black",
-        zIndex: 50,
-        border: "1px solid black",
-      });
-      frm.style.display = "flex";
-      formSection.style.padding = "30px";
-      img.style.display = "none";
-      s4BgChecker = true;
-    }
-  });
-}
+//       formSection.style.padding = "0px";
+//       s4BgChecker = false;
+//     } else {
+//       gsap.to(".text-section", {
+//         backgroundColor: "white",
+//         color: "black",
+//       });
+//       gsap.to(".text-section .hs4-info-div div p", {
+//         color: "black",
+//         zIndex: 50,
+//       });
+//       gsap.to(".text-section .hs4-info-div .hs4-div2 button", {
+//         color: "black",
+//         zIndex: 50,
+//         border: "1px solid black",
+//       });
+//       frm.style.display = "flex";
+//       formSection.style.padding = "30px";
+//       img.style.display = "none";
+//       s4BgChecker = true;
+//     }
+//   });
+// }
 
-heroSection4Animations();
+// heroSection4Animations();
 
 function rotateCardSectionAnimation() {
   let projectCards = document.querySelectorAll(".project-card-hs5");
@@ -510,6 +510,9 @@ function section6HoverAnimate() {
   console.log(alls6Divs[0].classList[1]);
   alls6Divs.forEach((pertDiv) => {
     pertDiv.addEventListener("mouseenter", (e) => {
+      console.log('====================================');
+      console.log("Hello");
+      console.log('====================================');
       let trg_elm = e.target.classList[1];
       let get_trg_elm = document.querySelector(`.${trg_elm}`);
 
