@@ -586,12 +586,12 @@ function aboutOurServicesAnimations() {
   split_para.forEach((char) => {
     let span = document.createElement("span");
     span.textContent = char;
-    span.style.display = "inline-block"; // Required for transform animations
-    span.style.opacity = 0; // Start hidden
+    span.style.display = "inline-block"; 
+    span.style.opacity = 0;
     para_container.appendChild(span);
-  }); // Select all span letters
+  }); 
 
-  const spans = para_container.querySelectorAll("span"); // Animate each letter using GSAP and ScrollTrigger
+  const spans = para_container.querySelectorAll("span"); 
 
   gsap.registerPlugin(ScrollTrigger);
   gsap.to(spans, {
