@@ -408,7 +408,7 @@ hero3VideoPlay3();
 //     scrollTrigger: {
 //       trigger: ".hs4-info-div",
 //       scroller: "body",
-//       start: "top 80%",
+//       start: "top 100%",
 //       toggleActions: "play none none reverse",
 //       // scrub:2
 //     },
@@ -510,9 +510,9 @@ function section6HoverAnimate() {
   console.log(alls6Divs[0].classList[1]);
   alls6Divs.forEach((pertDiv) => {
     pertDiv.addEventListener("mouseenter", (e) => {
-      console.log('====================================');
+      console.log("====================================");
       console.log("Hello");
-      console.log('====================================');
+      console.log("====================================");
       let trg_elm = e.target.classList[1];
       let get_trg_elm = document.querySelector(`.${trg_elm}`);
 
@@ -589,12 +589,12 @@ function aboutOurServicesAnimations() {
   split_para.forEach((char) => {
     let span = document.createElement("span");
     span.textContent = char;
-    span.style.display = "inline-block"; 
+    span.style.display = "inline-block";
     span.style.opacity = 0;
     para_container.appendChild(span);
-  }); 
+  });
 
-  const spans = para_container.querySelectorAll("span"); 
+  const spans = para_container.querySelectorAll("span");
 
   gsap.registerPlugin(ScrollTrigger);
   gsap.to(spans, {
@@ -614,3 +614,140 @@ function aboutOurServicesAnimations() {
 }
 
 aboutOurServicesAnimations();
+
+function heroSection4DynamicAnime() {
+  let rightDiv = document.querySelector(".hero-section4 .right");
+  let leftDiv = document.querySelector(".hero-section4 .left");
+  let formContainer = document.querySelector(".form-container");
+  let frmUnActiveBtn = document.querySelector(".absolute-back-btn button");
+  let frmActiveBtn = document.querySelector(".frm-active-btn");
+  gsap.set(formContainer, { display: "none", opacity: 0 });
+
+  frmActiveBtn.addEventListener("click", () => {
+    // Animate left and right out
+    gsap.to([leftDiv, rightDiv], {
+      opacity: 0,
+      duration: 0.5,
+      onComplete: () => {
+        gsap.set([leftDiv, rightDiv], { display: "none" }); // Show and animate formContainer in
+
+        gsap.set(formContainer, { display: "flex" });
+        gsap.to(formContainer, { opacity: 1, duration: 0.5 });
+      },
+    });
+  });
+
+  frmUnActiveBtn.addEventListener("click", () => {
+    // Animate formContainer out
+    gsap.to(formContainer, {
+      opacity: 0,
+      duration: 0.5,
+      onComplete: () => {
+        gsap.set(formContainer, { display: "none" }); // Show and animate left and right back in
+
+        gsap.set([leftDiv, rightDiv], { display: "flex" });
+        gsap.to([leftDiv, rightDiv], { opacity: 1, duration: 0.5 });
+      },
+    });
+  });
+}
+heroSection4DynamicAnime();
+
+function heroSection4ScrollAnimations() {
+  // Register ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+
+  let title1 = document.querySelector(".hero-section4 .right .top h1");
+  let allParas = document.querySelectorAll(".hero-section4 .right .top p");
+  let countableTexts = document.querySelectorAll(
+    ".hero-section4 .right .btm div div h1"
+  );
+
+  let title2 = document.querySelector(".hero-section4 .left .btm h1");
+  let allParas2 = document.querySelectorAll(".hero-section4 .left .btm p");
+  let img = document.querySelector(".hero-section4 .left .top img"); // Title 1 animation
+
+  gsap.from(title1, {
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: title1,
+      start: "top 105%",
+      scrub:1
+    },
+  }); // Paragraphs on right
+
+  allParas.forEach((para, index) => {
+    gsap.from(para, {
+      y: 20,
+      opacity: 0,
+      duration: 0.6,
+      delay: index * 0.1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: para,
+        start: "top 105%",
+        scrub:1
+      },
+    });
+  }); 
+
+  countableTexts.forEach((text, index) => {
+    gsap.from(text, {
+      scale: 0.8,
+      opacity: 0,
+      duration: 0.7,
+      delay: index * 0.1,
+      ease: "back.out(1.7)",
+      scrollTrigger: {
+        trigger: text,
+        start: "top 105%",
+        scrub:1
+      },
+    });
+  }); 
+
+  gsap.from(title2, {
+    x: -50,
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: title2,
+      start: "top 105%",
+      scrub:1
+    },
+  }); 
+
+  allParas2.forEach((para, index) => {
+    gsap.from(para, {
+      x: -20,
+      opacity: 0,
+      duration: 0.6,
+      delay: index * 0.1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: para,
+        start: "top 105%",
+        scrub:1
+      },
+    });
+  });
+
+  gsap.from(img, {
+    scale: 0.8,
+    opacity: 0,
+    rotate: -10,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: img,
+      start: "top 105%",
+      scrub:2
+    },
+  });
+}
+
+heroSection4ScrollAnimations();
