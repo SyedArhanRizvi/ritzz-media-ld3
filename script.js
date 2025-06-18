@@ -564,14 +564,15 @@ function footerAnimation() {
     {
       scale: 1,
       opacity: 1,
-      duration: 4,
-      ease: "linear",
+      duration: 3,
+      ease: "power3.in",
       scrollTrigger: {
         trigger: footer,
-        start: "top 80%",
-        end: "top 50%",
-        scrub: 1,
-        markers: false,
+        scroller: "body",
+        start: "top -50%",
+        end: "top 10%",
+        scrub: 4,
+        // markers: true,
         pin: true,
       },
     }
@@ -784,12 +785,12 @@ gsap.to(".wheel-carousel", {
   ease: "none",
   scrollTrigger: {
     trigger: ".hero-section5",
-    scroller:"body",
+    scroller: "body",
     start: "top 0%",
     end: "top -150%",
     scrub: true,
     markers: false,
-    pin:true,
-    markers:true
+    pin: true,
+    // markers:true
   },
 });
