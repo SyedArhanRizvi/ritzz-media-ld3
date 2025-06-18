@@ -1881,21 +1881,6 @@ footer .btm-ftr div p {
 }
 
 @media (max-width:415px) {
-    .hero-section5 .carousel-section .carousel .carousel-imgs .img {
-        height: 180px;
-        width: 180px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
-
-    .hero-section5 .carousel-section .carousel .carousel-imgs .img img {
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
-        object-position: center;
-    }
 
     .hero-section2 {
         width: 100vw;
@@ -2061,26 +2046,39 @@ footer .btm-ftr div p {
         border: none;
     }
 
+    .hero-section5 .carousel-section .carousel .carousel-imgs .img {
+        height: 170px;
+        width: 170px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .hero-section5 .carousel-section .carousel .carousel-imgs .img img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    .hero-section6 .sr {
+        width: 100%;
+        height: 18vh;
+        border-bottom: 1px solid gray;
+        padding: 30px;
+        display: flex;
+        align-items: flex-end;
+        padding-right: 60px;
+        cursor: pointer;
+    }
 
 }
 
-/* @media (max-width:376px) {
-    .crsl-div {
-        height: 270vh;
-        width: 100vw;
-        background: #0F3C37;
-        color: #ffffff;
-        padding: 80px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 80px;
-        /* margin-bottom: -; */
 
 
 body {
-    margin: 0;
+    /* margin: 0; */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f7f7f7;
 }
