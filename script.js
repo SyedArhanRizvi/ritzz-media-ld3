@@ -84,10 +84,10 @@ window.addEventListener("scroll", () => {
 
   if (currentScroll > lastScrollTop) {
     scrollDown = true;
-    console.log("Scrolling Down");
+    // console.log("Scrolling Down");
   } else if (currentScroll < lastScrollTop) {
     scrollDown = false;
-    console.log("Scrolling Up");
+    // console.log("Scrolling Up");
   }
 
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
@@ -199,7 +199,6 @@ function projectCardMouseMove() {
   const pc3Hover = document.querySelector(".pc3-hover");
   ["mousemove", "click"].forEach((eventType) => {
     projectCard1.addEventListener(eventType, (e) => {
-      
       document.querySelector(".hover-overlay").style.display = "flex";
       projectCard1.style.overflow = "hidden";
       const rect = projectCard1.getBoundingClientRect();
@@ -503,6 +502,7 @@ hero3VideoPlay3();
 // heroSection4Animations();
 
 function rotateCardSectionAnimation() {
+  
   let projectCards = document.querySelectorAll(".project-card-hs5");
 
   projectCards.forEach((card, i) => {
@@ -546,12 +546,12 @@ function rotateCardSectionAnimation() {
 
 function section6HoverAnimate() {
   const alls6Divs = document.querySelectorAll(".sr");
-  console.log(alls6Divs[0].classList[1]);
+  // console.log(alls6Divs[0].classList[1]);
   alls6Divs.forEach((pertDiv) => {
     pertDiv.addEventListener("mouseenter", (e) => {
-      console.log("====================================");
-      console.log("Hello");
-      console.log("====================================");
+      // console.log("====================================");
+      // console.log("Hello");
+      // console.log("====================================");
       let trg_elm = e.target.classList[1];
       let get_trg_elm = document.querySelector(`.${trg_elm}`);
 
@@ -617,8 +617,14 @@ function footerAnimation() {
     }
   );
 }
+window.addEventListener("resize", () => {
+    if (window.matchMedia("(max-width: 640px)").matches) {
+      return;
+    } else {
+      footerAnimation();
+    }
+});
 
-footerAnimation();
 
 function aboutOurServicesAnimations() {
   let para_container = document.querySelector(".servive-main h1");
@@ -789,8 +795,14 @@ function heroSection4ScrollAnimations() {
     },
   });
 }
+window.addEventListener("resize", () => {
+    if (window.matchMedia("(max-width: 640px)").matches) {
+      return;
+    } else {
+      heroSection4ScrollAnimations();
+    }
+  });
 
-heroSection4ScrollAnimations();
 let wheel = document.querySelector(".wheel-carousel");
 let images = gsap.utils.toArray(".wheel-card");
 
@@ -816,7 +828,14 @@ function wheelCarouselAnimation() {
 }
 
 wheelCarouselAnimation();
-window.addEventListener("resize", wheelCarouselAnimation);
+window.addEventListener("resize", () => {
+    if (window.matchMedia("(max-width: 640px)").matches) {
+      return;
+    } else {
+      wheelCarouselAnimation();
+    }
+});
+
 
 gsap.to(".wheel-carousel", {
   rotate: 360,
