@@ -95,14 +95,31 @@ window.addEventListener("scroll", () => {
 
 // Hero Sections 2 Animations
 function carouselTxt() {
-  if (window.matchMedia("(max-width: 640px)").matches) {
+  const mobileAnimation = () => {
+    let paraElement = document.querySelector(".hs2-btm .para-elm");
+    // if (!paraElement) return;
+
+    // Clear previous spans if any
+    // paraElement.innerHTML = "";
+    // paraElement.classList.add("para-elm");
+
+    let textContent = paraElement.textContent;
+
+    let split_para = textContent.split("");
+    split_para.forEach((char) => {
+      let span = document.createElement("span");
+      span.textContent = char;
+      paraElement.appendChild(span);
+    });
+
     gsap.to(".hs2-top .hs2-top-img h1", {
-      x: "-250%",
+      x: "-650%",
       duration: 10,
       ease: "none",
       repeat: -1,
-      repeatRefresh: true,
+      // repeatRefresh: true,
     });
+
     gsap.from(".hs2-btm h1", {
       x: "-100%",
       opacity: 0,
@@ -110,15 +127,52 @@ function carouselTxt() {
       delay: 1.5,
     });
 
-    let paraElement = document.querySelector(".hs2-btm p");
-    let textContent = paraElement.textContent;
-    let split_para = textContent.split("");
+    gsap.from(".para-elm span", {
+      x: "-150%",
+      opacity: 0,
+      stagger: 0.02,
+      ease: "power2.out",
+    });
+  };
+
+  const desktopAnimation = () => {
+    gsap.to(".hs2-top .hs2-top-img h1", {
+      x: "-700%",
+      scrollTrigger: {
+        trigger: ".hero-section2",
+        scroller: "body",
+        start: "top 0%",
+        end: "top -450%",
+        scrub: 2,
+        pin: true,
+      },
+    });
+
+    gsap.from(".hs2-btm h1", {
+      x: "-100%",
+      opacity: 0,
+      duration: 1.5,
+      delay: 1.5,
+      scrollTrigger: {
+        trigger: ".hero-section2",
+        scroller: "body",
+        start: "top 20%",
+        scrub: true,
+      },
+    });
+
+    const paraElement = document.querySelector(".hs2-btm p");
+    if (!paraElement) return;
+
+    const textContent = paraElement.dataset.original || paraElement.textContent;
+    paraElement.dataset.original = textContent;
 
     paraElement.textContent = "";
     paraElement.classList.add("para-elm");
 
+    const split_para = textContent.split("");
     split_para.forEach((char) => {
-      let span = document.createElement("span");
+      const span = document.createElement("span");
       span.textContent = char;
       paraElement.appendChild(span);
     });
@@ -128,65 +182,35 @@ function carouselTxt() {
       opacity: 0,
       stagger: 0.02,
       ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".hero-section2",
+        scroller: "body",
+        start: "top 10%",
+        scrub: true,
+      },
     });
-    return;
-  }
+  };
 
-  // This Animation Will Play In Dekstop Site
-  gsap.to(".hs2-top .hs2-top-img h1", {
-    x: "-700%",
-    scrollTrigger: {
-      trigger: ".hero-section2",
-      scroller: "body",
-      // markers: true,
-      start: "top 0%",
-      end: "top -450%",
-      scrub: 2,
-      pin: true,
-    },
-  });
+  // Detect device on load
+  const applyAnimations = () => {
+    if (window.matchMedia("(max-width: 640px)").matches) {
+      mobileAnimation();
+    } else {
+      desktopAnimation();
+    }
+  };
 
-  gsap.from(".hs2-btm h1", {
-    x: "-100%",
-    opacity: 0,
-    duration: 1.5,
-    delay: 1.5,
-    scrollTrigger: {
-      trigger: ".hero-section2",
-      scroller: "body",
-      // markers: true,
-      start: "top 20%",
-      scrub: true,
-    },
-  });
+  // Run on page load
+  applyAnimations();
 
-  let paraElement = document.querySelector(".hs2-btm p");
-  let textContent = paraElement.textContent;
-  let split_para = textContent.split("");
-
-  paraElement.textContent = "";
-  paraElement.classList.add("para-elm");
-
-  split_para.forEach((char) => {
-    let span = document.createElement("span");
-    span.textContent = char;
-    paraElement.appendChild(span);
-  });
-
-  gsap.from(".para-elm span", {
-    x: "-150%",
-    opacity: 0,
-    stagger: 0.02,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".hero-section2",
-      scroller: "body",
-      // markers: true,
-      start: "top 10%",
-      scrub: true,
-    },
+  // Re-run on resize
+  window.addEventListener("resize", () => {
+    // Clear all GSAP animations
+    gsap.killTweensOf("*");
+    applyAnimations();
   });
 }
+
 carouselTxt();
 
 function projectCardMouseMove() {
@@ -502,7 +526,6 @@ hero3VideoPlay3();
 // heroSection4Animations();
 
 function rotateCardSectionAnimation() {
-  
   let projectCards = document.querySelectorAll(".project-card-hs5");
 
   projectCards.forEach((card, i) => {
@@ -618,13 +641,12 @@ function footerAnimation() {
   );
 }
 window.addEventListener("resize", () => {
-    if (window.matchMedia("(max-width: 640px)").matches) {
-      return;
-    } else {
-      footerAnimation();
-    }
+  if (window.matchMedia("(max-width: 640px)").matches) {
+    return;
+  } else {
+    footerAnimation();
+  }
 });
-
 
 function aboutOurServicesAnimations() {
   let para_container = document.querySelector(".servive-main h1");
@@ -796,12 +818,12 @@ function heroSection4ScrollAnimations() {
   });
 }
 window.addEventListener("resize", () => {
-    if (window.matchMedia("(max-width: 640px)").matches) {
-      return;
-    } else {
-      heroSection4ScrollAnimations();
-    }
-  });
+  if (window.matchMedia("(max-width: 640px)").matches) {
+    return;
+  } else {
+    heroSection4ScrollAnimations();
+  }
+});
 
 let wheel = document.querySelector(".wheel-carousel");
 let images = gsap.utils.toArray(".wheel-card");
@@ -829,13 +851,12 @@ function wheelCarouselAnimation() {
 
 wheelCarouselAnimation();
 window.addEventListener("resize", () => {
-    if (window.matchMedia("(max-width: 640px)").matches) {
-      return;
-    } else {
-      wheelCarouselAnimation();
-    }
+  if (window.matchMedia("(max-width: 640px)").matches) {
+    return;
+  } else {
+    wheelCarouselAnimation();
+  }
 });
-
 
 gsap.to(".wheel-carousel", {
   rotate: 360,
@@ -851,116 +872,30 @@ gsap.to(".wheel-carousel", {
   },
 });
 
-function testimonialCardAnimations() {
-  let headerTitle = document.querySelector(".carousel-item .crsl-div div h1");
-  let testimonialCards = document.querySelectorAll(".testimonial-card");
-  let testimonialDarkCards = document.querySelectorAll(
-    ".testimonial-card-dark"
-  );
-  let testimonialCardTitle1 = document.querySelectorAll(
-    ".testimonial-card-dark h1"
-  );
-  let testimonialCardTitle2 = document.querySelectorAll(".testimonial-card h1");
-  let testimonialCardPara1 = document.querySelectorAll(
-    ".testimonial-card-dark p"
-  );
-  let testimonialCardPara2 = document.querySelectorAll(".testimonial-card p");
+const slider = document.getElementById("slider");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-  let nextBtn = document.querySelector(".carousel-control-next");
-  let prevBtn = document.querySelector(".carousel-control-prev");
+let index = 0;
+const cards = slider.children.length;
 
-  gsap.from(headerTitle, {
-    y: -60,
-    opacity: 0,
-    duration: 1.2,
-    ease: "power4.out",
-  });
-
-  function animateCards() {
-    gsap.fromTo(
-      testimonialCards,
-      { scale: 0.8, opacity: 0, rotate: -5 },
-      {
-        scale: 1,
-        opacity: 1,
-        rotate: 0,
-        duration: 1,
-        ease: "expo.out",
-        stagger: 0.2,
-      }
-    );
-
-    gsap.fromTo(
-      testimonialDarkCards,
-      { opacity: 0, x: -50, skewX: 10 },
-      {
-        opacity: 1,
-        x: 0,
-        skewX: 0,
-        duration: 1,
-        ease: "power3.out",
-        stagger: 0.2,
-      }
-    );
-
-    gsap.fromTo(
-      testimonialCardTitle1,
-      { y: 30, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power2.out",
-      }
-    );
-
-    gsap.fromTo(
-      testimonialCardPara1,
-      { y: 20, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power2.out",
-      }
-    );
-
-    gsap.fromTo(
-      testimonialCardTitle2,
-      { y: 30, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power2.out",
-      }
-    );
-
-    gsap.fromTo(
-      testimonialCardPara2,
-      { y: 20, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power2.out",
-      }
-    );
-  }
-
-  animateCards();
-
-  nextBtn.addEventListener("click", () => {
-    animateCards();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    animateCards();
+function updateSlide() {
+  const cardWidth = slider.children[0].offsetWidth + 20; // includes margin
+  gsap.to(slider, {
+    x: -index * cardWidth,
+    duration: 0.7,
+    ease: "power2.inOut",
   });
 }
 
-testimonialCardAnimations();
+nextBtn.addEventListener("click", () => {
+  index = (index + 1) % cards;
+  updateSlide();
+});
+
+prevBtn.addEventListener("click", () => {
+  index = (index - 1 + cards) % cards;
+  updateSlide();
+});
+
+window.addEventListener("resize", updateSlide);
