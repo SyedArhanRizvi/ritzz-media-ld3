@@ -779,7 +779,6 @@ function wheelCarouselAnimation() {
 wheelCarouselAnimation();
 window.addEventListener("resize", wheelCarouselAnimation);
 
-// Animate the wheel rotation on scroll
 gsap.to(".wheel-carousel", {
   rotate: 360,
   ease: "none",
@@ -791,6 +790,120 @@ gsap.to(".wheel-carousel", {
     scrub: true,
     markers: false,
     pin: true,
-    // markers:true
+    
   },
 });
+
+function testimonialCardAnimations() {
+  let headerTitle = document.querySelector(".carousel-item .crsl-div div h1");
+  let testimonialCards = document.querySelectorAll(".testimonial-card");
+  let testimonialDarkCards = document.querySelectorAll(
+    ".testimonial-card-dark"
+  );
+  let testimonialCardTitle1 = document.querySelectorAll(
+    ".testimonial-card-dark h1"
+  );
+  let testimonialCardTitle2 = document.querySelectorAll(".testimonial-card h1");
+  let testimonialCardPara1 = document.querySelectorAll(
+    ".testimonial-card-dark p"
+  );
+  let testimonialCardPara2 = document.querySelectorAll(".testimonial-card p");
+
+  let nextBtn = document.querySelector(".carousel-control-next");
+  let prevBtn = document.querySelector(".carousel-control-prev");
+
+  gsap.from(headerTitle, {
+    y: -60,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power4.out",
+  });
+
+  function animateCards() {
+    gsap.fromTo(
+      testimonialCards,
+      { scale: 0.8, opacity: 0, rotate: -5 },
+      {
+        scale: 1,
+        opacity: 1,
+        rotate: 0,
+        duration: 1,
+        ease: "expo.out",
+        stagger: 0.2,
+      }
+    );
+
+    gsap.fromTo(
+      testimonialDarkCards,
+      { opacity: 0, x: -50, skewX: 10 },
+      {
+        opacity: 1,
+        x: 0,
+        skewX: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.2,
+      }
+    ); 
+
+    gsap.fromTo(
+      testimonialCardTitle1,
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out",
+      }
+    );
+
+    gsap.fromTo(
+      testimonialCardPara1,
+      { y: 20, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out",
+      }
+    );
+
+    gsap.fromTo(
+      testimonialCardTitle2,
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out",
+      }
+    );
+
+    gsap.fromTo(
+      testimonialCardPara2,
+      { y: 20, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out",
+      }
+    );
+  } 
+
+  animateCards(); 
+
+  nextBtn.addEventListener("click", () => {
+    animateCards();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    animateCards();
+  });
+}
+
+testimonialCardAnimations();
