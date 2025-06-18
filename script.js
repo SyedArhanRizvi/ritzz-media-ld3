@@ -95,6 +95,44 @@ window.addEventListener("scroll", () => {
 
 // Hero Sections 2 Animations
 function carouselTxt() {
+  if (window.matchMedia("(max-width: 640px)").matches) {
+    gsap.to(".hs2-top .hs2-top-img h1", {
+      x: "-250%",
+      duration: 10,
+      ease: "none",
+      repeat: -1,
+      repeatRefresh: true,
+    });
+    gsap.from(".hs2-btm h1", {
+      x: "-100%",
+      opacity: 0,
+      duration: 1.5,
+      delay: 1.5,
+    });
+
+    let paraElement = document.querySelector(".hs2-btm p");
+    let textContent = paraElement.textContent;
+    let split_para = textContent.split("");
+
+    paraElement.textContent = "";
+    paraElement.classList.add("para-elm");
+
+    split_para.forEach((char) => {
+      let span = document.createElement("span");
+      span.textContent = char;
+      paraElement.appendChild(span);
+    });
+
+    gsap.from(".para-elm span", {
+      x: "-150%",
+      opacity: 0,
+      stagger: 0.02,
+      ease: "power2.out",
+    });
+    return;
+  }
+
+  // This Animation Will Play In Dekstop Site
   gsap.to(".hs2-top .hs2-top-img h1", {
     x: "-700%",
     scrollTrigger: {
@@ -159,26 +197,27 @@ function projectCardMouseMove() {
   const pc1Hover = document.querySelector(".pc1-hover");
   const pc2Hover = document.querySelector(".pc2-hover");
   const pc3Hover = document.querySelector(".pc3-hover");
+  ["mousemove", "click"].forEach((eventType) => {
+    projectCard1.addEventListener(eventType, (e) => {
+      
+      document.querySelector(".hover-overlay").style.display = "flex";
+      projectCard1.style.overflow = "hidden";
+      const rect = projectCard1.getBoundingClientRect();
+      const mx = e.clientX - rect.left;
+      const my = e.clientY - rect.top;
 
-  projectCard1.addEventListener("mousemove", (e) => {
-    console.log("hello");
-    document.querySelector(".hover-overlay").style.display = "flex";
-    projectCard1.style.overflow = "hidden";
-    const rect = projectCard1.getBoundingClientRect();
-    const mx = e.clientX - rect.left;
-    const my = e.clientY - rect.top;
+      pc1Hover.style.zIndex = 50;
+      pc1Hover.style.opacity = 1;
+      pc2Hover.style.zIndex = 0;
+      pc3Hover.style.zIndex = 0;
 
-    pc1Hover.style.zIndex = 50;
-    pc1Hover.style.opacity = 1;
-    pc2Hover.style.zIndex = 0;
-    pc3Hover.style.zIndex = 0;
-
-    // Animate pc1Hover with GSAP
-    gsap.to(pc1Hover, {
-      x: mx,
-      y: my,
-      duration: 0.3,
-      ease: "power2.out",
+      // Animate pc1Hover with GSAP
+      gsap.to(pc1Hover, {
+        x: mx,
+        y: my,
+        duration: 0.3,
+        ease: "power2.out",
+      });
     });
   });
 
@@ -790,7 +829,6 @@ gsap.to(".wheel-carousel", {
     scrub: true,
     markers: false,
     pin: true,
-    
   },
 });
 
@@ -844,7 +882,7 @@ function testimonialCardAnimations() {
         ease: "power3.out",
         stagger: 0.2,
       }
-    ); 
+    );
 
     gsap.fromTo(
       testimonialCardTitle1,
@@ -893,9 +931,9 @@ function testimonialCardAnimations() {
         ease: "power2.out",
       }
     );
-  } 
+  }
 
-  animateCards(); 
+  animateCards();
 
   nextBtn.addEventListener("click", () => {
     animateCards();
