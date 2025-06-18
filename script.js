@@ -675,7 +675,7 @@ function heroSection4ScrollAnimations() {
     scrollTrigger: {
       trigger: title1,
       start: "top 105%",
-      scrub:1
+      scrub: 1,
     },
   }); // Paragraphs on right
 
@@ -689,10 +689,10 @@ function heroSection4ScrollAnimations() {
       scrollTrigger: {
         trigger: para,
         start: "top 105%",
-        scrub:1
+        scrub: 1,
       },
     });
-  }); 
+  });
 
   countableTexts.forEach((text, index) => {
     gsap.from(text, {
@@ -704,10 +704,10 @@ function heroSection4ScrollAnimations() {
       scrollTrigger: {
         trigger: text,
         start: "top 105%",
-        scrub:1
+        scrub: 1,
       },
     });
-  }); 
+  });
 
   gsap.from(title2, {
     x: -50,
@@ -717,9 +717,9 @@ function heroSection4ScrollAnimations() {
     scrollTrigger: {
       trigger: title2,
       start: "top 105%",
-      scrub:1
+      scrub: 1,
     },
-  }); 
+  });
 
   allParas2.forEach((para, index) => {
     gsap.from(para, {
@@ -731,7 +731,7 @@ function heroSection4ScrollAnimations() {
       scrollTrigger: {
         trigger: para,
         start: "top 105%",
-        scrub:1
+        scrub: 1,
       },
     });
   });
@@ -745,9 +745,51 @@ function heroSection4ScrollAnimations() {
     scrollTrigger: {
       trigger: img,
       start: "top 105%",
-      scrub:2
+      scrub: 2,
     },
   });
 }
 
 heroSection4ScrollAnimations();
+let wheel = document.querySelector(".wheel-carousel");
+let images = gsap.utils.toArray(".wheel-card");
+
+function wheelCarouselAnimation() {
+  let radius = wheel.offsetWidth / 2.2; // reduced to tighten circle
+  let center = wheel.offsetWidth / 2;
+  let total = images.length;
+  let slice = (2 * Math.PI) / total;
+
+  images.forEach((item, i) => {
+    let angle = i * slice;
+    let x = center + radius * Math.sin(angle);
+    let y = center - radius * Math.cos(angle); // flipped to rotate correctly
+
+    gsap.set(item, {
+      xPercent: -50,
+      yPercent: -50,
+      x: x,
+      y: y,
+      rotation: (angle * 180) / Math.PI, // converted to degrees
+    });
+  });
+}
+
+wheelCarouselAnimation();
+window.addEventListener("resize", wheelCarouselAnimation);
+
+// Animate the wheel rotation on scroll
+gsap.to(".wheel-carousel", {
+  rotate: 360,
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".hero-section5",
+    scroller:"body",
+    start: "top 0%",
+    end: "top -150%",
+    scrub: true,
+    markers: false,
+    pin:true,
+    markers:true
+  },
+});
