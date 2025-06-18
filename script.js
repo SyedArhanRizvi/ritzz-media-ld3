@@ -114,7 +114,7 @@ function carouselTxt() {
 
     gsap.to(".hs2-top .hs2-top-img h1", {
       x: "-650%",
-      duration: 10,
+      duration: 18,
       ease: "none",
       repeat: -1,
       // repeatRefresh: true,
@@ -132,6 +132,12 @@ function carouselTxt() {
       opacity: 0,
       stagger: 0.02,
       ease: "power2.out",
+      scrollTrigger:{
+        trigger:".hero-section2 .para-elm span",
+        scroller:"body",
+        // markers:true,
+        start:"top 50%"
+      }
     });
   };
 
