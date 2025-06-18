@@ -2047,8 +2047,8 @@ footer .btm-ftr div p {
     }
 
     .hero-section5 .carousel-section .carousel .carousel-imgs .img {
-        height: 170px;
-        width: 170px;
+        height: 190px;
+        width: 190px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -2064,7 +2064,7 @@ footer .btm-ftr div p {
 
     .hero-section6 .sr {
         width: 100%;
-        height: 18vh;
+        height: 20vh;
         border-bottom: 1px solid gray;
         padding: 30px;
         display: flex;
