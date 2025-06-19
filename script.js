@@ -6,7 +6,6 @@ const slide2 = document.querySelector(".bg-shutter2");
 const slide3 = document.querySelector(".bg-shutter3");
 const shutterDiv = document.querySelector(".shutter-div");
 
-// Hero Section 1 Animations
 function shutterAnimation() {
   gsap.to(slide1, {
     y: "-100%",
@@ -84,10 +83,8 @@ window.addEventListener("scroll", () => {
 
   if (currentScroll > lastScrollTop) {
     scrollDown = true;
-    // console.log("Scrolling Down");
   } else if (currentScroll < lastScrollTop) {
     scrollDown = false;
-    // console.log("Scrolling Up");
   }
 
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
@@ -132,12 +129,12 @@ function carouselTxt() {
       opacity: 0,
       stagger: 0.02,
       ease: "power2.out",
-      scrollTrigger:{
-        trigger:".hero-section2 .para-elm span",
-        scroller:"body",
+      scrollTrigger: {
+        trigger: ".hero-section2 .para-elm span",
+        scroller: "body",
         // markers:true,
-        start:"top 50%"
-      }
+        start: "top 50%",
+      },
     });
   };
 
@@ -646,11 +643,11 @@ function footerAnimation() {
     }
   );
 }
+footerAnimation();
 window.addEventListener("resize", () => {
   if (window.matchMedia("(max-width: 640px)").matches) {
     return;
   } else {
-    footerAnimation();
   }
 });
 
@@ -823,6 +820,7 @@ function heroSection4ScrollAnimations() {
     },
   });
 }
+heroSection4ScrollAnimations();
 window.addEventListener("resize", () => {
   if (window.matchMedia("(max-width: 640px)").matches) {
     return;
